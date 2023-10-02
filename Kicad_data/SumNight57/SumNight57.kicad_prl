@@ -16,16 +16,16 @@
     },
     "selection_filter": {
       "dimensions": true,
-      "footprints": false,
-      "graphics": false,
+      "footprints": true,
+      "graphics": true,
       "keepouts": true,
-      "lockedItems": true,
+      "lockedItems": false,
       "otherItems": true,
       "pads": true,
       "text": true,
-      "tracks": false,
+      "tracks": true,
       "vias": true,
-      "zones": false
+      "zones": true
     },
     "visible_items": [
       0,
@@ -37,7 +37,6 @@
       8,
       9,
       10,
-      11,
       12,
       13,
       15,
@@ -65,7 +64,7 @@
       40
     ],
     "visible_layers": "fffffff_ffffffff",
-    "zone_display_mode": 1
+    "zone_display_mode": 0
   },
   "meta": {
     "filename": "SumNight57.kicad_prl",
