@@ -16,23 +16,18 @@ NKRO_ENABLE = no            # Enable N-Key Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 AUDIO_ENABLE = no           # Audio output
 
-# Keyball39 is split keyboard.
+# Sumnight57 is split keyboard.
 SPLIT_KEYBOARD = yes
 
 # Optical sensor driver for trackball.
 POINTING_DEVICE_ENABLE = yes
-POINTING_DEVICE_DRIVER = custom
-SRC += drivers/pmw3360/pmw3360.c
-QUANTUM_LIB_SRC += spi_master.c # Optical sensor use SPI to communicate
+POINTING_DEVICE_DRIVER = pmw3360
 
 # This is unnecessary for processing KC_MS_BTN*.
 MOUSEKEY_ENABLE = no
 
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
-
-# Include common library
-SRC += lib/keyball/keyball.c
 
 # Disable other features to squeeze firmware size
 SPACE_CADET_ENABLE = no
