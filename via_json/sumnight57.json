@@ -1,6 +1,6 @@
 {
     "name": "sumnight57",
-    "productId": "0x0100",
+    "productId": "0x0400",
     "vendorId": "0xF657",
     "lighting": "qmk_rgblight",
     "matrix": { "rows": 10, "cols": 6 },
