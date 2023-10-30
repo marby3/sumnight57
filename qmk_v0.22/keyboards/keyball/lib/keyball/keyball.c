@@ -30,7 +30,7 @@ const uint8_t SCROLL_DIV_MAX = 7;
 keyball_t keyball = {
     .this_have_ball = false,
     .that_enable    = false,
-    .that_have_ball = true,
+    .that_have_ball = false,
 
     .this_motion = {0},
     .that_motion = {0},
@@ -150,8 +150,7 @@ static void motion_to_mouse_move(keyball_motion_t *m, report_mouse_t *r, bool is
     r->x = clip2int8(m->x);
     r->y = -clip2int8(m->y);
 #else
-    r->x = clip2int8(m->y);
-    r->y = clip2int8(m->x);
+#    error("unknown Keyball model")
 #endif
     // clear motion
     m->x = 0;
@@ -178,8 +177,7 @@ static void motion_to_mouse_scroll(keyball_motion_t *m, report_mouse_t *r, bool 
     r->h = clip2int8(x);
     r->v = clip2int8(y);
 #else
-    r->h = clip2int8(y);
-    r->v = -clip2int8(x);
+#    error("unknown Keyball model")
 #endif
 
 #if KEYBALL_SCROLLSNAP_ENABLE
