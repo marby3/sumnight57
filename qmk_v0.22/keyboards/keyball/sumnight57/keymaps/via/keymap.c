@@ -129,7 +129,7 @@ bool is_clickable_mode(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    
+
     switch (keycode) {
         case KC_MY_BTN1:
         case KC_MY_BTN2:
@@ -139,7 +139,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
             // どこのビットを対象にするか。 Which bits are to be targeted?
             uint8_t btn = 1 << (keycode - KC_MY_BTN1);
-            
+
             if (record->event.pressed) {
                 // ビットORは演算子の左辺と右辺の同じ位置にあるビットを比較して、両方のビットのどちらかが「1」の場合に「1」にします。
                 // Bit OR compares bits in the same position on the left and right sides of the operator and sets them to "1" if either of both bits is "1".
@@ -166,7 +166,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 enable_click_layer();   // スクロールキーを離した時に再度クリックレイヤーを有効にする。 Enable click layer again when the scroll key is released.
             }
          return false;
-        
+
         case KC_TO_CLICKABLE_INC:
             if (record->event.pressed) {
                 user_config.to_clickable_movement += 5; // user_config.to_clickable_time += 10;
@@ -191,14 +191,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 eeconfig_update_user(user_config.raw);
             }
             return false;
-        
+
         case KC_SCROLL_DIR_V:
             if (record->event.pressed) {
                 user_config.mouse_scroll_v_reverse = !user_config.mouse_scroll_v_reverse;
                 eeconfig_update_user(user_config.raw);
             }
             return false;
-        
+
         case KC_SCROLL_DIR_H:
             if (record->event.pressed) {
                 user_config.mouse_scroll_h_reverse = !user_config.mouse_scroll_h_reverse;
@@ -208,13 +208,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
          default:
             if  (record->event.pressed) {
-                
+
                 if (state == CLICKING || state == SCROLLING)
                 {
                     enable_click_layer();
                     return false;
                 }
-                
+
                 for (int i = 0; i < sizeof(ignore_disable_mouse_layer_keys) / sizeof(ignore_disable_mouse_layer_keys[0]); i++)
                 {
                     if (keycode == ignore_disable_mouse_layer_keys[i])
@@ -225,9 +225,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
                 disable_click_layer();
             }
-        
+
     }
-   
+
     return true;
 }
 
@@ -239,7 +239,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
     int16_t current_v = 0;
 
     if (current_x != 0 || current_y != 0) {
-        
+
         switch (state) {
             case CLICKABLE:
                 click_timer = timer_read();
@@ -272,7 +272,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
                             scroll_v_mouse_interval_counter -= scroll_v_threshold;
                             rep_v -= scroll_v_threshold;
                         }
-                        
+
                     }
                 } else {
 
@@ -362,10 +362,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
     KC_ESC   , KC_1     , KC_2     , KC_3     , KC_4     , KC_5     ,                                  KC_6     , KC_7     , KC_8     , KC_9     , KC_0     , KC_MINS  ,
-    KC_DEL   , KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                                  KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     , KC_INT3  ,
+    KC_DEL   , KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                                  KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     , _______  ,
     KC_TAB   , KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                                  KC_H     , KC_J     , KC_K     , KC_L     , KC_SCLN  , S(KC_7)  ,
     MO(1)    , KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     , KC_RBRC  ,              KC_NUHS, KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  , KC_RSFT  ,
-                                     KC_LGUI  ,LT(1,KC_LNG2),LT(2,KC_SPC),LT(3,KC_LNG1),    KC_BSPC,LT(2,KC_ENT),LT(1,KC_LNG2)
+                                     _______  ,_______,_______,_______,    _______,_______,_______
   ),
 
   [1] = LAYOUT_universal(
