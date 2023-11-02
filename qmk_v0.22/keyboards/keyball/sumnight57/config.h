@@ -28,8 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Split parameters
 #define SOFT_SERIAL_PIN         D2
-//#define MASTER_LEFT
-//#define SPLIT_HAND_MATRIX_GRID  B5, F6
+#define EE_HANDS
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT       500
 
