@@ -23,15 +23,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROWS           ( 10 )
 #define MATRIX_COL_PINS { F7, F6, F5, F4, D0, D4 }
 #define MATRIX_ROW_PINS { C6, D7, E6, B4, B5 }
+
 #define DEBOUNCE            5
 #define DIODE_DIRECTION COL2ROW
 
 // Split parameters
 #define SOFT_SERIAL_PIN         D2
-#define EE_HANDS
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT       500
-
+#define SPLIT_HAND_MATRIX_GRID  B5, F7
 #define SPLIT_TRANSACTION_IDS_KB KEYBALL_GET_INFO, KEYBALL_GET_MOTION, KEYBALL_SET_CPI
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 7
